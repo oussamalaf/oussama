@@ -1,0 +1,30 @@
+// Définition des haut-parleurs helloSpeaker et byeSpeaker
+var helloSpeaker = {
+  speak: function(name) {
+    console.log("Hello " + name);
+  }
+};
+
+var byeSpeaker = {
+  speak: function(name) {
+    console.log("Good Bye " + name);
+  }
+};
+
+// Envelopper tout le code dans une IIFE
+(function() {
+  var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
+
+  // Parcourir le tableau de noms
+  for (var i = 0; i < names.length; i++) {
+    // Récupérer la première lettre du nom en minuscule
+    var firstLetter = names[i].charAt(0).toLowerCase();
+    
+    // Sélectionner la méthode de haut-parleur appropriée en fonction de la première lettre du nom
+    if (firstLetter !== 'j') {
+      helloSpeaker.speak(names[i]);
+    } else {
+      byeSpeaker.speak(names[i]);
+    }
+  }
+})();
